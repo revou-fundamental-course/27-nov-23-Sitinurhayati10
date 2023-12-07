@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Segitiga</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="navigasi-bar">
+    <h1>Welcome to Katik</h1>
+    <h3>Hai sobat! Selamat datang di Katik :]</h3>
+    <h4>Sebuah web apps sederhana yang berfungsi untuk menghitung nilai luas dan keliling bangun datar</h4>
+    <nav class="navigation">
+    </nav>
+</header>
+
+<section class="container">
+    <div>
+        <h3>Segitiga</h3>
+    </div>
+</section>
+
+<div>
+    <h3>Jajar Genjang</h3>
+</div>
+
+<section class="container">
+    <div>
+        <h2>Luas Segitiga</h2>
+    </div>
+</section>
+
+<br>
+<div>
+    <img src="segitiga.jpeg" width="300" height="200" alt="Gambar Segitiga"/>
+</div>
+</br>
+
+<div class="rumus-luas">Rumus Luas Segitiga</div>
+<div class="rumus">L = 1/2 * a * t</div>
+<div class="rumus-desc">Di mana:</div>
+<div class="rumus-desc">L = Luas</div>
+<div class="rumus-desc">a = Panjang Alas</div>
+<div class="rumus-desc">t = Tinggi</div>
+
+<div class="garis-pembatas"></div>
+
+<div class="hitung-luas">
+    <h1>Hitung Luas Segitiga</h1>
+    <div class="input-box">
+        <input type="number" placeholder="Masukkan panjang alas" class="katik-input" id="input-alas">
+        <input type="number" placeholder="Masukkan tinggi" class="katik-input" id="input-tinggi">
+        <input type="text" class="katik-input" id="input-luas" value="Hasil luas segitiga" readonly>
+    </div>    
+    <button onclick="hitungLuas()">Hitung</button>
+    <button onclick="resetForm()" class="reset-button">Reset</button>
+</div><br>
+
+<!-- Add a new section for displaying the result of Luas Segitiga -->
+<div id="hasil-luas-text"></div><br>
+
+<section class="container">
+    <div>
+        <h2>Keliling Segitiga</h2>
+    </div>
+</section>
+
+<div class="rumus-luas">Rumus Keliling Segitiga</div>
+<div class="rumus">K = a + b + c</div>
+<div class="rumus-desc">Dimana:</div>
+<div class="rumus-desc">K = Keliling</div>
+<div class="rumus-desc">a, b, c = Panjang sisi segitiga</div>
+
+<div class="garis-pembatas"></div>
+
+<!-- Add a new section for Hitung Keliling Segitiga -->
+<div class="hitung-luas">
+    <h1>Hitung Keliling Segitiga</h1>
+    <div class="input-box">
+        <input type="number" placeholder="Masukkan panjang sisi a" class="katik-input" id="input-sisi-a">
+        <input type="number" placeholder="Masukkan panjang sisi b" class="katik-input" id="input-sisi-b">
+        <input type="number" placeholder="Masukkan panjang sisi c" class="katik-input" id="input-sisi-c">
+        <input type="text" class="katik-input" id="input-keliling" value="Hasil keliling segitiga" readonly>
+    </div>    
+    <button onclick="hitungKeliling()">Hitung</button>
+    <button onclick="resetForm()" class="reset-button">Reset</button>
+</div><br>
+
+<!-- Add a new section for displaying the result of Keliling Segitiga -->
+<div id="hasil-keliling-text"></div>
+
+<!-- Add this script for the calculations -->
+<script>
+    // Function to calculate the area of a triangle
+    function hitungLuas() {
+        var alas = parseFloat(document.getElementById("input-alas").value);
+        var tinggi = parseFloat(document.getElementById("input-tinggi").value);
+        var hasilLuas = 0.5 * alas * tinggi;
+
+        // Display the result in the input field
+        document.getElementById("input-luas").value = hasilLuas;
+
+        // Display the result in the specified element
+        document.getElementById("hasil-luas-text").innerText = `Hasil Luas Segitiga: ${hasilLuas}`;
+    }
+
+    // Function to calculate the perimeter of a triangle
+    function hitungKeliling() {
+        var sisiA = parseFloat(document.getElementById("input-sisi-a").value);
+        var sisiB = parseFloat(document.getElementById("input-sisi-b").value);
+        var sisiC = parseFloat(document.getElementById("input-sisi-c").value);
+        var hasilKeliling = sisiA + sisiB + sisiC;
+
+        // Display the result in the input field
+        document.getElementById("input-keliling").value = hasilKeliling;
+
+        // Display the result in the specified element
+        document.getElementById("hasil-keliling-text").innerText = `Hasil Keliling Segitiga: ${hasilKeliling}`;
+    }
+
+    // Function to reset input fields and results
+    function resetForm() {
+        document.getElementById("input-alas").value = "";
+        document.getElementById("input-tinggi").value = "";
+        document.getElementById("input-luas").value = "Hasil luas segitiga";
+        document.getElementById("hasil-luas-text").innerText = "";
+
+        document.getElementById("input-sisi-a").value = "";
+        document.getElementById("input-sisi-b").value = "";
+        document.getElementById("input-sisi-c").value = "";
+        document.getElementById("input-keliling").value = "Hasil keliling segitiga";
+        document.getElementById("hasil-keliling-text").innerText = "";
+    }
+</script>
+
+</body>
+</html>
